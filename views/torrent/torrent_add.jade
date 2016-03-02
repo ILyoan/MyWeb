@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  form.form-horizontal#form_register(encrypt='multipart/form-data')
+    div.form-group
+      label.col-sm-2.control-label Torrent File
+      div.col-sm-10
+       input#torrent_file(type='file')
+    div.form-group
+      label.col-sm-2.control-label Magnet
+      div.col-sm-10
+        input.form-control#torrent_magnet(type='text' placeholder='magnet')
+    div.form-group
+      div.col-sm-offset-2.col-sm-10
+        button.btn.btn-default#btn_register(type='button') add
+    
+  div.col-sm-offset-2.alert(role='lert')#message= message
+
+block footer
+  script(src='/javascripts/torrent_add.js')
+

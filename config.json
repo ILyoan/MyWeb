@@ -1,0 +1,9 @@
+{
+  "port": 3000,
+  "torrent": {
+    "tmp_path": "/media/storage/tmp/"
+  },
+  "database": {
+    "path": "myweb.db"
+  }
+}

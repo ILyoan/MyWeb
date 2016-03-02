@@ -1,0 +1,20 @@
+mixin amenu(menu)
+  li
+    a(href=menu.url)= menu.title
+
+mixin menu_or_dropmenu(menu)
+  if menu.submenu
+    li.dropdown
+      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', area-haspopup='true' area-expanded='false')= menu.title
+        span.caret
+      ul.dropdown-menu
+        each submenu in menu.submenu
+          +amenu(submenu)
+  else
+    +amenu(menu)
+
+nav.navbar.navbar-inverse(role='navigator')
+  div.container
+    ul.nav.navbar-nav
+      each menu in menus
+        +menu_or_dropmenu(menu)

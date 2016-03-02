@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  table.table.table-hover#torrent_list
+    tr
+      th #
+      th name
+      th size 
+      th progress
+      th status
+    if message
+      tr.warning
+        td(colspan=5)= message
+    else
+      each row in data
+        tr
+          td= row.rowid
+          td= row.name
+          td= row.length
+          td
+            div.progress
+              div.progress-bar.progress-bar-success.progress-bar-striped(style='width:40%')
+          td= row.status
+
+block footer
+  script(src='/javascripts/torrent_list.js')
+
